@@ -20,8 +20,8 @@ public class Instructors extends People<Instructor> {
     public Instructor[] toArray() {
         Instructor[] personArray = new Instructor[this.getPersonList().size()];
         int index = 0;
-        for(Person person: this.getPersonList()) {
-            personArray[index] = (Instructor) person;
+        for(Instructor person: this.getPersonList()) {
+            personArray[index] = person;
             index++;
         }
 

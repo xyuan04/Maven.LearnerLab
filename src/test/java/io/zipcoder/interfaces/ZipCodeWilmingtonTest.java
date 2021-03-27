@@ -11,12 +11,11 @@ public class ZipCodeWilmingtonTest {
     public void testHostLectureWithID() {
         //Given:
         ZipCodeWilmington zipcode = new ZipCodeWilmington();
-        Student xiong = (Student) Students.getInstance().findByID(1);
 
         //When:
         Students.getInstance().clearAllStudyTime();
         zipcode.hostLecture(100, 40);
-        Double totalStudyTime = ((Student) Students.getInstance().findByID(1)).getTotalStudyTime();
+        Double totalStudyTime = (Students.getInstance().findByID(1)).getTotalStudyTime();
 
         //Then:
         assertEquals(10, totalStudyTime, 0.00001);
@@ -26,13 +25,12 @@ public class ZipCodeWilmingtonTest {
     public void testHostLectureWithInstructor() {
         //Given:
         ZipCodeWilmington zipcode = new ZipCodeWilmington();
-        Teacher younger = (Teacher) Instructors.getInstance().findByID(200);
-        Student xiong = (Student) Students.getInstance().findByID(1);
+        Teacher younger = Instructors.getInstance().findByID(200);
 
         //When:
         Students.getInstance().clearAllStudyTime();
         zipcode.hostLecture(younger, 80);
-        Double totalStudyTime = ((Student) Students.getInstance().findByID(1)).getTotalStudyTime();
+        Double totalStudyTime = (Students.getInstance().findByID(1)).getTotalStudyTime();
 
         //Then:
         assertEquals(20, totalStudyTime, 0.00001);
@@ -42,7 +40,7 @@ public class ZipCodeWilmingtonTest {
     public void getStudyMap() {
         //Given:
         ZipCodeWilmington zipcode = new ZipCodeWilmington();
-        Student xiong = (Student) Students.getInstance().findByID(1);
+        Student xiong = Students.getInstance().findByID(1);
 
         //When:
         Students.getInstance().clearAllStudyTime();
@@ -58,7 +56,6 @@ public class ZipCodeWilmingtonTest {
     public void testHostLectureWithInstructorENUM() {
         //Given:
         ZipCodeWilmington zipcode = new ZipCodeWilmington();
-        Student xiong = (Student) Students.getInstance().findByID(1);
 
         //When:
         Students.getInstance().clearAllStudyTime();
@@ -73,7 +70,7 @@ public class ZipCodeWilmingtonTest {
     public void getStudyMapENUM() {
         //Given:
         ZipCodeWilmington zipcode = new ZipCodeWilmington();
-        Student xiong = (Student) Students.getInstance().findByID(1);
+        Student xiong = Students.getInstance().findByID(1);
 
         //When:
         Students.getInstance().clearAllStudyTime();
