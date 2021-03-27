@@ -11,11 +11,11 @@ public abstract class People<TypeOfPerson extends Person> implements Iterable<Ty
         personList.add(person);
     }
 
-    public Person findByID(long id) {
+    public TypeOfPerson findByID(long id) {
         Iterator<TypeOfPerson> personIterator = iterator();
 
         while(personIterator.hasNext()) {
-            Person currentPerson = personIterator.next();
+            TypeOfPerson currentPerson = personIterator.next();
             if(currentPerson.getId() == id) {
                 return currentPerson;
             }
