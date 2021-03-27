@@ -14,4 +14,13 @@ public class Student extends Person implements Learner{
     public Double getTotalStudyTime() {
         return totalStudyTime;
     }
+
+    public void clearStudyTime() {
+        totalStudyTime = 0;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("\nStudent: \n\tName: %s\n\tID: %s\n\tStudy Time: %f",this.getName(), this.getId(), this.getTotalStudyTime());
+    }
 }

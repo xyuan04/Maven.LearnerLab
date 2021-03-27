@@ -4,15 +4,15 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class People implements Iterable<Person>{
-    private List<Person> personList = new ArrayList<Person>();
+public abstract class People<TypeOfPerson extends Person> implements Iterable<TypeOfPerson>{
+    private List<TypeOfPerson> personList = new ArrayList<TypeOfPerson>();
 
-    public void add(Person person) {
+    public void add(TypeOfPerson person) {
         personList.add(person);
     }
 
     public Person findByID(long id) {
-        Iterator<Person> personIterator = iterator();
+        Iterator<TypeOfPerson> personIterator = iterator();
 
         while(personIterator.hasNext()) {
             Person currentPerson = personIterator.next();
@@ -23,8 +23,8 @@ public class People implements Iterable<Person>{
         return null;
     }
 
-    public boolean contains(Person person) {
-        Iterator<Person> personIterator = iterator();
+    public boolean contains(TypeOfPerson person) {
+        Iterator<TypeOfPerson> personIterator = iterator();
 
         while(personIterator.hasNext()) {
             Person currentPerson = personIterator.next();
@@ -35,8 +35,8 @@ public class People implements Iterable<Person>{
         return false;
     }
 
-    public void remove(Person person) {
-        Iterator<Person> personIterator = iterator();
+    public void remove(TypeOfPerson person) {
+        Iterator<TypeOfPerson> personIterator = iterator();
 
         while(personIterator.hasNext()) {
             Person currentPerson = personIterator.next();
@@ -48,7 +48,7 @@ public class People implements Iterable<Person>{
     }
 
     public void remove(long id) {
-        Iterator<Person> personIterator = iterator();
+        Iterator<TypeOfPerson> personIterator = iterator();
 
         while(personIterator.hasNext()) {
             Person currentPerson = personIterator.next();
@@ -67,11 +67,13 @@ public class People implements Iterable<Person>{
         return personList.size();
     }
 
-    public Person[] toArray() {
-        return (Person[]) personList.toArray();
+    public abstract TypeOfPerson[] toArray();
+
+    public List<TypeOfPerson> getPersonList() {
+        return personList;
     }
 
-    public Iterator<Person> iterator() {
+    public Iterator<TypeOfPerson> iterator() {
         return personList.iterator();
     }
 }

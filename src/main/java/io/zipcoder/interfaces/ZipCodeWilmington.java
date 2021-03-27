@@ -1,7 +1,7 @@
 package io.zipcoder.interfaces;
 
-import java.util.HashMap;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class ZipCodeWilmington {
@@ -9,21 +9,21 @@ public class ZipCodeWilmington {
     private Instructors instructors = Instructors.getInstance();
 
     public void hostLecture(Teacher teacher, double numberOfHours) {
-        teacher.lecture((Learner[]) students.toArray(), numberOfHours);
+        teacher.lecture(students.toArray(), numberOfHours);
     }
 
     public void hostLecture(long id, double numberOfHours) {
         Instructor hostInstructor = (Instructor) instructors.findByID(id);
 
-        hostInstructor.lecture((Learner[]) students.toArray(), numberOfHours);
+        hostInstructor.lecture(students.toArray(), numberOfHours);
     }
 
     public Map<Student, Double> getStudyMap() {
-        Map<Student, Double> map = new HashMap<Student, Double>();
-        Iterator<Person> studentIterator = students.iterator();
+        Map<Student, Double> map = new LinkedHashMap<Student, Double>();
+        Iterator<Student> studentIterator = students.iterator();
 
         while (studentIterator.hasNext()) {
-            Student currentStudent = (Student) studentIterator.next();
+            Student currentStudent = studentIterator.next();
             Double totalStudyTime = currentStudent.getTotalStudyTime();
             map.put(currentStudent, totalStudyTime);
         }

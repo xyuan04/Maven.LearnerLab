@@ -16,4 +16,9 @@ public class Instructor extends Person implements Teacher{
             teach(learner, numberOfHoursPerLearner);
         }
     }
+
+    @Override
+    public String toString() {
+        return String.format("\nInstructor: \n\tName: %s\n\tID: %s",this.getName(), this.getId());
+    }
 }
