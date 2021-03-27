@@ -27,7 +27,7 @@ public abstract class People<TypeOfPerson extends Person> implements Iterable<Ty
         Iterator<TypeOfPerson> personIterator = iterator();
 
         while(personIterator.hasNext()) {
-            Person currentPerson = personIterator.next();
+            TypeOfPerson currentPerson = personIterator.next();
             if(currentPerson == person) {
                 return true;
             }
@@ -39,7 +39,7 @@ public abstract class People<TypeOfPerson extends Person> implements Iterable<Ty
         Iterator<TypeOfPerson> personIterator = iterator();
 
         while(personIterator.hasNext()) {
-            Person currentPerson = personIterator.next();
+            TypeOfPerson currentPerson = personIterator.next();
             if(currentPerson == person) {
                 personList.remove(currentPerson);
                 break;
@@ -51,7 +51,7 @@ public abstract class People<TypeOfPerson extends Person> implements Iterable<Ty
         Iterator<TypeOfPerson> personIterator = iterator();
 
         while(personIterator.hasNext()) {
-            Person currentPerson = personIterator.next();
+            TypeOfPerson currentPerson = personIterator.next();
             if(currentPerson.getId() == id) {
                 personList.remove(currentPerson);
                 break;
